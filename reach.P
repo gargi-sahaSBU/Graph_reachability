@@ -1,0 +1,11 @@
+input :- [reachin1000].
+
+:- table reach/1.
+
+reach(X) :- source(X).
+reach(X) :- reach(Y),edge(Y,X).		
+
+printReach :- reach(X),write(X),write(' '),fail.
+printReach.
+
+timeReach :- cputime(X),input,printReach,cputime(Y),T is Y-X,write(T).
